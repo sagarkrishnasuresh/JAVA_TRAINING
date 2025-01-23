@@ -34,7 +34,7 @@ class ContractEmployee extends Employee{
         this.contractId = contractId;
     }
 
-    public int getContractDays(){ return contractId; }
+    public int getContractId(){ return contractId; }
 
     @Override
     public String toString() {
@@ -55,8 +55,8 @@ public class EmployeeSortDemo{
 //        employees.add(new Employee(107,"John"));
 //        employees.add(new Employee(106,"David"));
 //        employees.add(new Employee(105,"Yash"));
-        addRandomEmployees(employees,5);
-        addRandomContractEmployees(employees,5);
+        addRandomEmployees(employees,10);
+        addRandomContractEmployees(employees,10);
 
 
         int empLength= employees.size();
@@ -71,7 +71,8 @@ public class EmployeeSortDemo{
         System.out.println("\nHow would you like to sort the employees?");
         System.out.println("1. By Name");
         System.out.println("2. By ID");
-        System.out.print("Enter your choice (1 or 2): ");
+        System.out.println("3. By contract Id");
+        System.out.print("Enter your choice (1 or 2 or 3): ");
 
         int choice = scanner.nextInt();
         employees.sort(Comparator.comparing(Employee::getEmployeeName));
@@ -86,7 +87,7 @@ public class EmployeeSortDemo{
 
         }
 
-        if(choice==2){
+        else if(choice==2){
 
             employees.sort(Comparator.comparing(Employee::getEmployeeId));
 
@@ -95,6 +96,27 @@ public class EmployeeSortDemo{
                 System.out.println(emp);
             }
         }
+
+        else if(choice==3){
+
+            employees.sort(Comparator.comparingInt(emp -> {
+                if (emp instanceof ContractEmployee) {
+                    return ((ContractEmployee) emp).getContractId();
+                }
+                return Integer.MAX_VALUE; // Regular employees are sorted to the end
+            }));
+            System.out.println("\nSorted by Contract ID (Contract Employees first):");
+            for (Employee emp : employees) {
+                System.out.println(emp);
+            }
+
+        }
+
+        else {
+            System.out.println("Invalid input!");
+        }
+
+        scanner.close();
     }
 
     private static void addRandomEmployees(List<Employee> employees, int count) {
@@ -116,7 +138,7 @@ public class EmployeeSortDemo{
         for (int i = 0; i < count; i++) {
             int id = 100 + random.nextInt(900);
             String name = names[random.nextInt(names.length)];
-            int contractDays = 30 + random.nextInt(60); // Random contract days between 30 and 90
+            int contractDays = 1000 + random.nextInt(500); // Random contract days between 30 and 90
             employees.add(new ContractEmployee(id, name, contractDays));
         }
 

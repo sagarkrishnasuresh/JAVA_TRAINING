@@ -1,9 +1,6 @@
 package JAVA_TRAINING.employeeSort;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 class Employee {
     private int employeeId;
@@ -23,9 +20,29 @@ class Employee {
 
     @Override
     public String toString(){
-        return "Employee{"+"employeeId=" + employeeId + ", employeeName='" +employeeName +'\'' +'}';
+        return "Employee{"+"employeeId=" + employeeId + ", employeeName='" +employeeName +"'}";
     }
 }
+
+
+class ContractEmployee extends Employee{
+
+    private int contractId;
+
+    public ContractEmployee(int employeeId, String employeeName, int contractId) {
+        super(employeeId, employeeName);
+        this.contractId = contractId;
+    }
+
+    public int getContractDays(){ return contractId; }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", contract Id = " + contractId +'}';
+    }
+}
+
+
 
 public class EmployeeSortDemo{
     public static void main(String[] args) {
@@ -38,28 +55,46 @@ public class EmployeeSortDemo{
 //        employees.add(new Employee(107,"John"));
 //        employees.add(new Employee(106,"David"));
 //        employees.add(new Employee(105,"Yash"));
+        addRandomEmployees(employees,5);
+        addRandomContractEmployees(employees,5);
 
-        addRandomEmployees(employees,20);
+
+        int empLength= employees.size();
+        System.out.println("Size of array:"+ empLength);
 
         System.out.println("Original List:");
         for (Employee emp : employees) {
             System.out.println(emp);
         }
 
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nHow would you like to sort the employees?");
+        System.out.println("1. By Name");
+        System.out.println("2. By ID");
+        System.out.print("Enter your choice (1 or 2): ");
+
+        int choice = scanner.nextInt();
         employees.sort(Comparator.comparing(Employee::getEmployeeName));
 
-        System.out.println("\nSorted by Name:");
-        for (Employee emp : employees) {
-            System.out.println(emp);
+
+        if(choice==1){
+
+            System.out.println("\nSorted by Name:");
+            for (Employee emp : employees) {
+                System.out.println(emp);
+            }
+
         }
 
-        employees.sort(Comparator.comparing(Employee::getEmployeeId));
+        if(choice==2){
 
-        System.out.println(("\nSorted ny Id:"));
-        for (Employee emp : employees) {
-            System.out.println(emp);
+            employees.sort(Comparator.comparing(Employee::getEmployeeId));
+
+            System.out.println(("\nSorted ny Id:"));
+            for (Employee emp : employees) {
+                System.out.println(emp);
+            }
         }
-
     }
 
     private static void addRandomEmployees(List<Employee> employees, int count) {
@@ -72,6 +107,19 @@ public class EmployeeSortDemo{
             String name = names[random.nextInt(names.length)];
             employees.add(new Employee(id, name));
         }
+    }
+
+    private static void addRandomContractEmployees(List<Employee> employees, int count) {
+        Random random = new Random();
+        String[] names = {"Kevin", "Laura", "Mona", "Nancy", "Oscar", "Paul", "Quincy", "Rachel", "Steve", "Tom"};
+
+        for (int i = 0; i < count; i++) {
+            int id = 100 + random.nextInt(900);
+            String name = names[random.nextInt(names.length)];
+            int contractDays = 30 + random.nextInt(60); // Random contract days between 30 and 90
+            employees.add(new ContractEmployee(id, name, contractDays));
+        }
+
     }
 
 }

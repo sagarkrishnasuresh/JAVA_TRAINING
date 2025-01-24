@@ -1,4 +1,4 @@
-package JAVA_TRAINING.employeeSort;
+package java_training.employeeSort;
 
 import java.util.*;
 
@@ -55,6 +55,7 @@ public class EmployeeSortDemo{
 //        employees.add(new Employee(107,"John"));
 //        employees.add(new Employee(106,"David"));
 //        employees.add(new Employee(105,"Yash"));
+
         addRandomEmployees(employees,10);
         addRandomContractEmployees(employees,10);
 

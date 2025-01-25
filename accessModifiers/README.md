@@ -51,10 +51,5 @@ This repository contains a simple and beginner-friendly tutorial on **Access Mod
 ## Repository Structure
 
 - **Code Examples**: Contains practical examples for each type of access modifier.
-- **Concepts**: Includes a detailed explanation of when and why to use each access modifier.
+- 
 
-## How to Use
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/java-access-modifiers.git

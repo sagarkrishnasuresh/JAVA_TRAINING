@@ -1,7 +1,7 @@
 package java_training.lambda;
 
 @FunctionalInterface
-interface SquareCalculator{
+public interface SquareCalculator{
     int calculateSquare(int number);
 
 }

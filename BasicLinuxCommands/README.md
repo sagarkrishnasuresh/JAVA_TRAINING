@@ -172,31 +172,60 @@
 
 ### 7. **Search and Find**
 
-- `find`: Search for files and directories.
+#### **Searching Using `find`**
+- Search for files by name:
   ```bash
-  find /path -name filename
+  find /path/to/search -name "filename"
   ```
-- `grep`: Search for patterns in files.
+- Search by file type:
+  ```bash
+  find /path/to/search -type f   # Find files
+  find /path/to/search -type d   # Find directories
+  ```
+- Search by size:
+  ```bash
+  find /path/to/search -size +10M   # Files larger than 10MB
+  ```
+- Search by modification time:
+  ```bash
+  find /path/to/search -mtime -7   # Files modified in the last 7 days
+  ```
+
+#### **Searching Using `grep`**
+- Search for a pattern in a file:
   ```bash
   grep "pattern" filename
+  ```
+- Search recursively in a directory:
+  ```bash
+  grep -r "pattern" /path/to/directory
+  ```
+- Ignore case sensitivity:
+  ```bash
+  grep -i "pattern" filename
   ```
 
 ---
 
-### 8. **Shortcuts and Help**
+### 8. **Viewing Large Files with `less`**
 
-- `man`: Display the manual page for a command.
+The `less` command allows you to view large files one screen at a time.
+
+#### **Usage**
+- Open a file with `less`:
   ```bash
-  man ls
+  less filename
   ```
-- `history`: View the history of executed commands.
+
+#### **Navigation in `less`**
+- `Space`: Scroll forward one page.
+- `b`: Scroll backward one page.
+- `/pattern`: Search for a pattern in the file.
   ```bash
-  history
+  /pattern
   ```
-- `clear`: Clear the terminal screen.
-  ```bash
-  clear
-  ```
+- `n`: Move to the next occurrence of the search.
+- `q`: Quit `less`.
 
 ---
 
@@ -206,7 +235,5 @@
 3. Experiment with `chmod` and `chown` to understand permissions better.
 4. Use `man` to explore details about commands.
 5. Practice searching with `find` and `grep`.
-
-Let me know if you need help with specific commands or tasks! 😊
-
+6. Use `less` for efficiently viewing large files.
 

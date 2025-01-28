@@ -1,4 +1,4 @@
-package java_training.accessModifiers.pacakageA;
+package com.example.accessModifiers.pacakageA;
 
 public class AccessModifiers {
 
@@ -6,7 +6,6 @@ public class AccessModifiers {
     private String privateField = "I am Private";
     protected String protectedField = "I am Protected";
     String defaultField = "I am Default";
-
 
 
     public void publicMethod() {
@@ -26,5 +25,4 @@ public class AccessModifiers {
     }
 
 
-    
 }

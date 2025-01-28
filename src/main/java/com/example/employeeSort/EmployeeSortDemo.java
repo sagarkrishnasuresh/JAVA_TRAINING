@@ -1,4 +1,4 @@
-package java_training.employeeSort;
+package com.example.employeeSort;
 
 import java.util.*;
 
@@ -11,21 +11,22 @@ class Employee {
         this.employeeName = employeeName;
     }
 
-    public int getEmployeeId(){
+    public int getEmployeeId() {
         return employeeId;
     }
-    public String getEmployeeName(){
+
+    public String getEmployeeName() {
         return employeeName;
     }
 
     @Override
-    public String toString(){
-        return "Employee{"+"employeeId=" + employeeId + ", employeeName='" +employeeName +"'}";
+    public String toString() {
+        return "Employee{" + "employeeId=" + employeeId + ", employeeName='" + employeeName + "'}";
     }
 }
 
 
-class ContractEmployee extends Employee{
+class ContractEmployee extends Employee {
 
     private int contractId;
 
@@ -34,17 +35,18 @@ class ContractEmployee extends Employee{
         this.contractId = contractId;
     }
 
-    public int getContractId(){ return contractId; }
+    public int getContractId() {
+        return contractId;
+    }
 
     @Override
     public String toString() {
-        return super.toString() + ", contract Id = " + contractId +'}';
+        return super.toString() + ", contract Id = " + contractId + '}';
     }
 }
 
 
-
-public class EmployeeSortDemo{
+public class EmployeeSortDemo {
     public static void main(String[] args) {
         List<Employee> employees = new ArrayList<>();
 
@@ -56,12 +58,12 @@ public class EmployeeSortDemo{
 //        employees.add(new Employee(106,"David"));
 //        employees.add(new Employee(105,"Yash"));
 
-        addRandomEmployees(employees,10);
-        addRandomContractEmployees(employees,10);
+        addRandomEmployees(employees, 10);
+        addRandomContractEmployees(employees, 10);
 
 
-        int empLength= employees.size();
-        System.out.println("Size of array:"+ empLength);
+        int empLength = employees.size();
+        System.out.println("Size of array:" + empLength);
 
         System.out.println("Original List:");
         for (Employee emp : employees) {
@@ -69,51 +71,38 @@ public class EmployeeSortDemo{
         }
 
         Scanner scanner = new Scanner(System.in);
+
+        Map<Integer, Comparator<Employee>> sortingOptions = new HashMap<>();
+        sortingOptions.put(1, Comparator.comparing(Employee::getEmployeeName)); // Sort by Name
+        sortingOptions.put(2, Comparator.comparing(Employee::getEmployeeId));  // Sort by ID
+        sortingOptions.put(3, (e1, e2) -> { // Sort by Contract ID
+            if (e1 instanceof ContractEmployee && e2 instanceof ContractEmployee) {
+                return Integer.compare(
+                        ((ContractEmployee) e1).getContractId(),
+                        ((ContractEmployee) e2).getContractId()
+                );
+            } else if (e1 instanceof ContractEmployee) {
+                return -1;
+            } else if (e2 instanceof ContractEmployee) {
+                return 1;
+            }
+            return 0;
+        });
+
         System.out.println("\nHow would you like to sort the employees?");
         System.out.println("1. By Name");
         System.out.println("2. By ID");
-        System.out.println("3. By contract Id");
-        System.out.print("Enter your choice (1 or 2 or 3): ");
+        System.out.println("3. By Contract ID");
+        System.out.print("Enter your choice (1, 2, or 3): ");
 
         int choice = scanner.nextInt();
-        employees.sort(Comparator.comparing(Employee::getEmployeeName));
+        Comparator<Employee> comparator = sortingOptions.get(choice);
 
-
-        if(choice==1){
-
-            System.out.println("\nSorted by Name:");
-            for (Employee emp : employees) {
-                System.out.println(emp);
-            }
-
-        }
-
-        else if(choice==2){
-
-            employees.sort(Comparator.comparing(Employee::getEmployeeId));
-
-            System.out.println(("\nSorted ny Id:"));
-            for (Employee emp : employees) {
-                System.out.println(emp);
-            }
-        }
-
-        else if(choice==3){
-
-            employees.sort(Comparator.comparingInt(emp -> {
-                if (emp instanceof ContractEmployee) {
-                    return ((ContractEmployee) emp).getContractId();
-                }
-                return Integer.MAX_VALUE; // Regular employees are sorted to the end
-            }));
-            System.out.println("\nSorted by Contract ID (Contract Employees first):");
-            for (Employee emp : employees) {
-                System.out.println(emp);
-            }
-
-        }
-
-        else {
+        if (comparator != null) {
+            employees.sort(comparator);
+            System.out.println("\nSorted List:");
+            employees.forEach(System.out::println);
+        } else {
             System.out.println("Invalid input!");
         }
 

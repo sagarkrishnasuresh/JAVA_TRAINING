@@ -1,4 +1,4 @@
-package java_training.lambda;
+package com.example.lambda;
 
 @FunctionalInterface
 public interface SquareCalculator{

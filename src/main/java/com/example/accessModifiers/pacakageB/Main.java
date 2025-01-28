@@ -1,6 +1,6 @@
-package java_training.accessModifiers.pacakageB;
+package com.example.accessModifiers.pacakageB;
 
-import java_training.accessModifiers.pacakageA.AccessModifiers;
+import com.example.accessModifiers.pacakageA.AccessModifiers;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,26 +20,24 @@ public class Main {
         // System.out.println(objSub.privateField);
 
 
-        
-        
         // objTwo.publicMethod();
 
         // objTwo.protectedMethod(); // not accessible for subclass in another package
         // objTwo.privateMethod(); // not accessible for subclass in another package
         System.out.println(objSub.publicField);
 
-        
-        }
+
     }
+}
 
 class inheritedClass extends AccessModifiers {
 
-    public String getProtected(){ 
+    public String getProtected() {
         return protectedField; // Protected is accessible for subclass in another package
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Public Field=" + publicField; // public is accessible for subclass in another package
         // return "Protected Field=" + protectedField; // Protected is accessible for subclass in another package
 

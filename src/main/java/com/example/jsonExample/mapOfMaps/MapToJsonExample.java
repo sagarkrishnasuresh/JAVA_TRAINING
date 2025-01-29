@@ -17,6 +17,9 @@ public class MapToJsonExample {
         mainMap.put("name", "Alice");
         mainMap.put("address", addressMap);
 
+        System.out.println("addressMap : " + addressMap);
+        System.out.println("mainMap : " + mainMap);
+
         // Step 3: Convert Map to JSON using ObjectMapper
         ObjectMapper objectMapper = new ObjectMapper();
         String json = objectMapper.writeValueAsString(mainMap);

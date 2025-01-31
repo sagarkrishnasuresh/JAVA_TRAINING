@@ -17,6 +17,11 @@ public class MapToJsonExample {
         mainMap.put("name", "Alice");
         mainMap.put("address", addressMap);
 
+
+        Object zipCode = ((Map)mainMap.get("address")).get("zipCode");
+        System.out.println(zipCode);  //accessing data from the nested map inside the main map
+
+
         System.out.println("addressMap : " + addressMap);
         System.out.println("mainMap : " + mainMap);
 

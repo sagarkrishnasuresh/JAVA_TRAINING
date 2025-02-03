@@ -1,4 +1,4 @@
-package com.example.jsonexample.usingClass.nestedJson;
+package com.example.jsonexample.usingClass.nestedjson;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class NestedJsonExample {

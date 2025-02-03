@@ -1,4 +1,4 @@
-package com.example.jsonexample.usingClass.nestedJson;
+package com.example.jsonexample.usingClass.nestedjson;
 
 public class Person {
     private String name;

@@ -1,72 +1,56 @@
 # Java Training Repository
 
-This repository is designed as a **Java Basic Training** resource for learning and practicing various core concepts of
-Java programming. It serves as a collection of examples, exercises, and notes to help beginners and intermediate
-developers understand Java fundamentals and more advanced topics over time.
+This repository is designed to help developers learn and practice essential Java concepts. It includes examples and exercises for understanding key topics.
 
 ---
 
 ## 📂 Repository Structure
 
-The repository is organized into multiple directories, each focusing on a specific topic in Java or related concepts.
-Here's an overview of the current structure:
+### 1. **accessModifiers**
+   - Examples demonstrating the visibility and usage of access modifiers (`public`, `private`, `protected`, and default) in classes, methods, and fields.
 
-### **1. BasicLinuxCommands**
+### 2. **basicLinuxCommands**
+   - A collection of essential Linux commands beneficial for Java developers, covering file management, permissions, and searching.
 
-- Focuses on essential Linux commands that are useful for Java developers while working with the terminal.
-- Includes:
-    - File and directory management.
-    - Permissions handling (`chmod`, `chown`, etc.).
-    - File searching (`find`, `grep`).
-    - Working with processes, disk space, and system monitoring.
+### 3. **comparatorVsComparable**
+   - Detailed comparison of the `Comparator` and `Comparable` interfaces with examples of sorting custom objects.
 
-### **2. accessModifiers**
+### 4. **employeeSort**
+   - Sorting `Employee` objects by attributes such as name, ID, or contract ID, using `Comparator`, `Comparable`, and lambda expressions.
 
-- Demonstrates the use of Java's access modifiers:
-    - **`public`**, **`private`**, **`protected`**, and default (package-private).
-- Includes examples to show how modifiers affect the visibility of classes, methods, and fields.
+### 5. **exceptionHandling**
+   - Practical examples showcasing different ways to handle exceptions in Java, including custom exceptions and best practices.
 
-### **3. employeeSort**
+### 6. **javaReflections**
+   - Examples utilizing the Java Reflection API to inspect and modify classes, methods, and fields dynamically.
 
-- Contains a comprehensive example of sorting `Employee` objects.
-- Topics covered:
-    - Using `Comparator` and `Comparable`.
-    - Lambda expressions and method references for concise sorting logic.
-    - Sorting by multiple attributes (e.g., `name`, `id`, `contractId`).
+### 7. **jsonExample**
+   - Parsing JSON data and creating JSON objects in Java, including examples using popular libraries like Jackson or Gson.
 
-### **4. javaReflections**
+### 8. **lambda**
+   - Introduction to lambda expressions and their use in simplifying code, with examples covering functional interfaces and stream operations.
 
-- Explores Java Reflection API, which allows:
-    - Inspecting and modifying classes, methods, and fields at runtime.
-    - Dynamically invoking methods.
-- Includes practical examples for better understanding.
+### 9. **mapTypeSpecification**
+   - Exploration of various map implementations in Java (`HashMap`, `TreeMap`, `LinkedHashMap`) and their use cases.
 
-### **5. lambda**
+### 10. **threading**
+   - Examples illustrating multithreading concepts such as thread creation, synchronization, and concurrent programming.
 
-- Explains the usage of **lambda expressions** in Java.
-- Covers:
-    - Syntax and usage of lambdas.
-    - Functional interfaces.
-    - Real-world scenarios where lambdas simplify the code (e.g., sorting, stream operations).
+### 11. **exercises**
+   - A collection of practice problems designed to reinforce the understanding of key Java topics.
 
 ---
 
-## 🚀 Future Topics
+## 🚀 How to Use
 
-This repository will continue to grow with more topics, including but not limited to:
-
-- **Multithreading and Concurrency**.
-- **Exception Handling**.
-- **Executors in Java**.
-- **Working with JSON (JSON Arrays and JSON Object Parsing)**.
-- **Java Collections Framework**.
-- **Streams and Functional Programming**.
-- **Advanced Topics** (e.g., Java Reflection, Annotations, and Generics).
-
----
-
-## 🛠 How to Use
-
-1. Clone this repository to your local machine:
+1. Clone this repository:
    ```bash
    git clone https://github.com/your-username/java_training.git
+   ```
+2. Navigate to the specific folder for examples or exercises.
+3. Compile and run Java files using:
+   ```bash
+   javac FileName.java
+   java FileName
+   ```
+

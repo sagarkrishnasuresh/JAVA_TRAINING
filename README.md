@@ -48,9 +48,5 @@ This repository is designed to help developers learn and practice essential Java
    git clone https://github.com/your-username/java_training.git
    ```
 2. Navigate to the specific folder for examples or exercises.
-3. Compile and run Java files using:
-   ```bash
-   javac FileName.java
-   java FileName
-   ```
+
 
